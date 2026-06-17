@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+  Modelo de carta de apresentação. Troque os {{TOKENS}}. Gere o PDF com:
+  Cover letter template. Replace the {{TOKENS}}. Generate the PDF with:
+    python scripts/gerar_pdf.py este.html saida.pdf
+-->
+<html lang="{{LANG}}">
+<head>
+<meta charset="UTF-8">
+<title>{{NOME}} - Carta / Cover Letter</title>
+<style>
+  :root { --accent: #4f46e5; }
+  @page { size: A4; margin: 18mm 18mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #1f2937; font-size: 10.5pt; line-height: 1.5; margin: 0; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 9px; margin-bottom: 18px; }
+  h1 { font-size: 19pt; margin: 0 0 1px; color: #111827; letter-spacing: -0.3px; }
+  .role { font-size: 10.5pt; color: var(--accent); font-weight: 600; margin: 0 0 6px; }
+  .contact { font-size: 9pt; color: #4b5563; line-height: 1.4; }
+  p { margin: 0 0 11px; }
+  .sign { margin-top: 18px; }
+  .sign b { color: #111827; }
+  .sign .links { font-size: 9pt; color: #4b5563; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>{{NOME}}</h1>
+  <p class="role">{{TITULO}}</p>
+  <div class="contact">{{LOCAL}} &nbsp;·&nbsp; {{EMAIL}} &nbsp;·&nbsp; {{TELEFONE}} &nbsp;·&nbsp; {{GITHUB}} &nbsp;·&nbsp; {{LINKEDIN}}</div>
+</header>
+
+<p>{{SAUDACAO}}</p>
+
+<p>{{P1}}</p>
+
+<p>{{P2}}</p>
+
+<p>{{P3}}</p>
+
+<div class="sign">
+  <p>{{DESPEDIDA}}<br>
+  <b>{{NOME}}</b><br>
+  <span class="links">{{CONTATOS}}</span></p>
+</div>
+
+</body>
+</html>

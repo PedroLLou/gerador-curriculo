@@ -27,18 +27,24 @@ Em vez de manter um único currículo genérico, você guarda suas informações
 4. **Registre no rastreador** `candidaturas.md`.
 
 ### Requisitos
-- Um assistente de IA que leia arquivos de contexto (`CLAUDE.md`).
-- **Python 3** + `python-docx` (`pip install python-docx`) para a versão `.docx`.
+- Um assistente de IA que leia arquivos de contexto (`CLAUDE.md` ou `AGENTS.md`).
+- **Python 3** + dependências: `pip install -r requirements.txt` (para a versão `.docx`).
 - Um navegador **Chrome/Edge/Chromium** instalado para gerar o PDF.
 
 ### Gerar os arquivos
 ```bash
+# QA antes de gerar: alerta travessão, buzzwords, bullets longos, etc.
+python scripts/lint.py caminho/curriculo.md caminho/vaga.md
+
 # PDF (a partir do HTML): detecta o navegador automaticamente
 python scripts/gerar_pdf.py caminho/curriculo.html caminho/curriculo.pdf
 
 # DOCX (ATS): edite o conteúdo no script e rode
 python scripts/gerar_docx.py
 ```
+
+> A IA também pode gerar **carta de apresentação** (`templates/carta.*`) e responder **perguntas de
+> candidatura**. Veja o `CLAUDE.md`/`AGENTS.md`.
 
 ---
 
@@ -60,18 +66,24 @@ them into a focused resume, producing a PDF (for humans) and a DOCX (for ATS).
 4. **Log it** in the `candidaturas.md` tracker.
 
 ### Requirements
-- An AI assistant that reads context files (`CLAUDE.md`).
-- **Python 3** + `python-docx` (`pip install python-docx`) for the `.docx` version.
+- An AI assistant that reads context files (`CLAUDE.md` or `AGENTS.md`).
+- **Python 3** + dependencies: `pip install -r requirements.txt` (for the `.docx` version).
 - A **Chrome/Edge/Chromium** browser installed to render the PDF.
 
 ### Generate the files
 ```bash
+# QA before generating: flags em dash, buzzwords, long bullets, etc.
+python scripts/lint.py path/curriculo.md path/vaga.md
+
 # PDF (from HTML): auto-detects the browser
 python scripts/gerar_pdf.py path/curriculo.html path/curriculo.pdf
 
 # DOCX (ATS): edit the content in the script and run it
 python scripts/gerar_docx.py
 ```
+
+> The AI can also generate a **cover letter** (`templates/carta.*`) and answer **application
+> questions**. See `CLAUDE.md`/`AGENTS.md`.
 
 ---
 
@@ -86,9 +98,11 @@ python scripts/gerar_docx.py
 | `idiomas/` | Idiomas / Languages |
 | `certificacoes/` | Certificados e cursos / Certs and courses |
 | `projetos-github/` | Um `.md` por repositório / One `.md` per repo |
-| `templates/` | Modelos de currículo (html/md) + vaga/scorecard |
-| `scripts/` | `gerar_pdf.py`, `gerar_docx.py` |
+| `templates/` | Modelos: currículo (html/md), carta (html/md), vaga, scorecard |
+| `scripts/` | `gerar_pdf.py`, `gerar_docx.py`, `lint.py` (QA) |
 | `curriculos-gerados/` | Saída por vaga / Output per job |
 | `candidaturas.md` | Rastreador / Application tracker |
 | `CLAUDE.md` | Regras do assistente (Claude Code) / Assistant rules (Claude Code) |
 | `AGENTS.md` | Mesmas regras para outras IAs / Same rules for other AI tools |
+| `requirements.txt` | Dependências Python / Python dependencies |
+| `LICENSE` | MIT |

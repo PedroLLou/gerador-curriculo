@@ -44,6 +44,33 @@ abaixo. / when the user says **"start"** (or **"começar"**), run the onboarding
 
 ---
 
+## ✍️ Escopo: carta e perguntas / Scope: cover letter and application questions
+
+Além do currículo, o assistente também ajuda com / Besides the resume, the assistant also helps with:
+
+- **Carta de apresentação / Cover letter:** se a vaga pedir, gere `carta.md` (e `carta.pdf` opcional)
+  a partir de `templates/carta.*`. Curta (3-4 parágrafos), específica, **não repetir o currículo**,
+  gancho de fit no início, sem clichês, sem travessão. / if requested, generate `carta.md` (and an
+  optional `carta.pdf`) from `templates/carta.*`. Short, specific, do not restate the resume.
+- **Perguntas de candidatura / Application questions** ("por que aqui?", "quantos anos com X?",
+  "descreva seu fluxo"): responder com fatos da base, calibrado por senioridade, **sem inventar**.
+  Se houver teste técnico adiante, não exagerar o que não dá para defender. / answer from the data
+  base, calibrated to seniority, never fabricating; if a tech test is coming, do not overclaim.
+
+## 🔎 QA antes de finalizar / QA before finalizing
+
+Rode o lint no `curriculo.md` e corrija os alertas antes de gerar o PDF/DOCX.
+Run the lint on `curriculo.md` and fix the warnings before generating the PDF/DOCX:
+
+```bash
+python scripts/lint.py curriculos-gerados/<pasta>/curriculo.md curriculos-gerados/<pasta>/vaga.md
+```
+
+Verifica / Checks: travessão "—", buzzwords, bullets longos, aberturas repetidas e palavras-chave da
+vaga ausentes. / em dash, buzzwords, long bullets, repeated openings and missing job keywords.
+
+---
+
 ## 🇧🇷 Português
 
 ### Propósito
