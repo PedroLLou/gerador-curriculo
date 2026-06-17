@@ -1,0 +1,16 @@
+# Saídas geradas com dados pessoais (mantém o README da pasta)
+# Generated outputs with personal data (keeps the folder README)
+curriculos-gerados/*/
+!curriculos-gerados/README.md
+
+# Python
+__pycache__/
+*.pyc
+
+# Sistema operacional / OS
+.DS_Store
+Thumbs.db
+
+# Editores / Editors
+.vscode/
+.idea/

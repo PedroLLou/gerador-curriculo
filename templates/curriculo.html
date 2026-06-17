@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+  Modelo de currículo (coluna única, ATS-amigável). Troque os {{TOKENS}} pelo conteúdo.
+  Resume template (single column, ATS-friendly). Replace the {{TOKENS}} with content.
+  Gere o PDF com: python scripts/gerar_pdf.py este.html saida.pdf
+  Cor de destaque: ajuste --accent. / Accent color: tweak --accent.
+-->
+<html lang="{{LANG}}">
+<head>
+<meta charset="UTF-8">
+<title>{{NOME}} - Currículo</title>
+<style>
+  :root { --accent: #4f46e5; }
+  @page { size: A4; margin: 11mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #1f2937; font-size: 9.6pt; line-height: 1.36; margin: 0; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 11px; }
+  h1 { font-size: 20pt; margin: 0 0 1px; color: #111827; letter-spacing: -0.3px; }
+  .role { font-size: 10.6pt; color: var(--accent); font-weight: 600; margin: 0 0 6px; }
+  .contact { font-size: 8.8pt; color: #4b5563; line-height: 1.4; }
+  .contact a { color: #4b5563; text-decoration: none; }
+  h2 { font-size: 9.8pt; text-transform: uppercase; letter-spacing: 0.6px; color: var(--accent);
+       border-bottom: 1px solid #e5e7eb; padding-bottom: 2px; margin: 11px 0 6px; }
+  p { margin: 0 0 5px; }
+  ul { margin: 3px 0 6px; padding-left: 15px; }
+  li { margin-bottom: 2px; }
+  .job { margin-bottom: 8px; }
+  .job-title { font-weight: 700; color: #111827; font-size: 10pt; }
+  .job-meta { color: #6b7280; font-size: 8.6pt; font-weight: 400; }
+  a.link { color: var(--accent); text-decoration: none; }
+  .muted { color: #6b7280; }
+  section { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>{{NOME}}</h1>
+  <p class="role">{{TITULO}}</p>
+  <div class="contact">
+    {{LOCAL}} &nbsp;·&nbsp; {{EMAIL}} &nbsp;·&nbsp; {{TELEFONE}}<br>
+    <a href="{{GITHUB_URL}}">{{GITHUB}}</a> &nbsp;·&nbsp; <a href="{{LINKEDIN_URL}}">{{LINKEDIN}}</a>
+  </div>
+</header>
+
+<section>
+  <h2>{{H_RESUMO}}</h2>
+  <p>{{RESUMO}}</p>
+</section>
+
+<section>
+  <h2>{{H_HABILIDADES}}</h2>
+  <ul>
+    <li><b>Core:</b> {{SKILLS_CORE}}</li>
+    <li><b>{{H_WEB}}:</b> {{SKILLS_WEB}}</li>
+    <li><b>{{H_BANCO}}:</b> {{SKILLS_DB}}</li>
+    <li><b>{{H_FERRAMENTAS}}:</b> {{SKILLS_TOOLS}}</li>
+    <li><b>{{H_IDIOMAS}}:</b> {{IDIOMAS}}</li>
+  </ul>
+</section>
+
+<section>
+  <h2>{{H_EXPERIENCIA}}</h2>
+
+  <div class="job">
+    <div><span class="job-title">{{EXP1_TITULO}}</span>
+      <span class="job-meta">· {{EXP1_META}}</span></div>
+    <ul>
+      <li>{{EXP1_B1}}</li>
+      <li>{{EXP1_B2}}</li>
+      <li>{{EXP1_B3}}</li>
+    </ul>
+  </div>
+
+  <!-- Duplique o bloco .job conforme necessário / Duplicate the .job block as needed -->
+
+</section>
+
+<section>
+  <h2>{{H_PROJETOS}}</h2>
+  <ul>
+    <li><b>{{PROJ1_NOME}}:</b> {{PROJ1_DESC}} <a class="link" href="{{PROJ1_URL}}">{{PROJ1_LINK}}</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>{{H_FORMACAO}}</h2>
+  <p><b>{{FORMACAO}}</b> <span class="muted">· {{FORMACAO_META}}</span></p>
+</section>
+
+<section>
+  <h2>{{H_CERTIFICACOES}}</h2>
+  <p>{{CERTIFICACOES}}</p>
+</section>
+
+</body>
+</html>
